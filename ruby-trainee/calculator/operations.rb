@@ -9,11 +9,24 @@ module Calculator
     def biased_mean(grades, blacklist)
 
       @grades = JSON.parse(grades)
-      @blacklist = blacklist.split
+      blacklist_arr = blacklist.split
 
-      @grades.each do |key, array|
-        
+      blacklist_arr.each do |black|
+        @Grades_new = @grades.select {|key, array| key != black} #Remove os alunos presentes na blacklist e coloca os que sobraram na Grades_new
+        @grades = @Grades_new 
       end
+
+      mean = 0
+      index = 0
+
+      @Grades_new.each do |key, array|
+        mean += array #Calcula média
+        index += 1
+      end
+
+      mean /= index
+
+      return mean
     end
   
     def no_integers(numbers)

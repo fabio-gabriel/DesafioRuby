@@ -24,7 +24,7 @@ module Calculator
     print 'Digite a string com os alunos: '
     students = gets.chomp
 
-    calc_operation.biased_mean(json, students)
+    puts calc_operation.biased_mean(json, students)
   end
 
 end
