@@ -7,16 +7,23 @@ module Calculator
     include ExtraOperations
   
     def biased_mean(grades, blacklist)
-    
+
+      @grades = JSON.parse(grades)
+      @blacklist = blacklist.split
+
+      @grades.each do |key, array|
+        
+      end
     end
   
     def no_integers(numbers)
-  
+      @numbers = numbers
     end
   
     def filter_films(genres, year)
       films = get_films
-  
+      @genres = genres
+      @year = year
     end
     
     private
