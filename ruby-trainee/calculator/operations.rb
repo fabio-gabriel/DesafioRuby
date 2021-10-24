@@ -44,12 +44,19 @@ module Calculator
       return @answers
     end
   
-    def filter_films(genres, year)
+    def filter_films(genres, years)
       films = get_films
+      genre = genres.split
+      year = years      
+      films_list = Array.new
 
-
-
-
+      films[:movies].each do |movie|
+        if movie[:genres] == genre && movie[:year] >= year
+          return movie[:title]
+        else
+          return 'No movies match'
+        end
+      end
     end
     
     private
