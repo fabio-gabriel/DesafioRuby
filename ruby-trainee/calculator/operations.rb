@@ -7,7 +7,6 @@ module Calculator
     include ExtraOperations
   
     def biased_mean(grades, blacklist)
-
       @grades = JSON.parse(grades)
       blacklist_arr = blacklist.split
 
@@ -20,23 +19,37 @@ module Calculator
       index = 0
 
       @Grades_new.each do |key, array|
-        mean += array #Calcula média
-        index += 1
+        mean += array 
+        index += 1 
       end
 
-      mean /= index
-
+      mean /= index 
       return mean
     end
   
     def no_integers(numbers)
-      @numbers = numbers
+      numbers_string = numbers.split
+
+      @answers = '' 
+      
+      numbers_string.each do |n|
+        last_two = n[-2..-1]
+
+        if last_two == '00' || last_two == '25' || last_two == '50' || last_two == '75' 
+          @answers += 'S '
+        else
+          @answers += 'N '
+        end
+      end
+      return @answers
     end
   
     def filter_films(genres, year)
       films = get_films
-      @genres = genres
-      @year = year
+
+
+
+
     end
     
     private
